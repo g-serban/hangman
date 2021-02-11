@@ -28,7 +28,7 @@ def hangman():
         print('Current word is: ', ' '.join(word_list))
 
         user_input = input('Guess a letter: ').upper()
-        if user_input in alphabet - letters:      # if the input is in the alphabet, then add it to used_letters set
+        if user_input in alphabet - letters:      # if the input is in the alphabet + is not in letters, then add it to letters set
             letters.add(user_input)
             if user_input in word_letters:
                 word_letters.remove(user_input)
@@ -45,7 +45,13 @@ def hangman():
         print('You have died!! The word was', word)
     else:
         print('You guessed the', word, 'correctly. Congrats!!')
+    play_again = input('Wanna play again? (Yes/No): ').lower()
+    if play_again == 'yes':
+        hangman()
+    else:
+        print('Thank you for playing the game!')
         
+
 hangman()
 
 
